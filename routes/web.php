@@ -35,4 +35,8 @@ Route::middleware(['auth:admin'])->group(function () {
     })->name('admin.dashboard');
 });
 
+Route::get('/home', function () {
+    return view('user.home');
+})->middleware(['auth'])->name('home');
+
 require __DIR__.'/auth.php';
