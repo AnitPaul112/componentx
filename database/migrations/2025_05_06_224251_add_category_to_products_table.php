@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shoutouts', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->text('message');
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('category')->nullable();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shoutouts');
+        Schema::table('products', function (Blueprint $table) {
+            //
+        });
     }
 };

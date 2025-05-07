@@ -10,19 +10,21 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::table('users', function (Blueprint $table) {
-        $table->string('role')->default('user'); // you can change default if needed
-    });
-}
+    {
+        Schema::create('shoutouts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-    Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('role');
-    });
+        Schema::dropIfExists('shoutouts');
     }
-};
+}; 

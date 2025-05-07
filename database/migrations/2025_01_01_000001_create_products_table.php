@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('coupons', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique(); // Coupon code
-            $table->decimal('discount_percentage', 5, 2); // Discount percentage (e.g., 10.00 for 10% off)
-            $table->dateTime('valid_from'); // Valid from
-            $table->dateTime('valid_until'); // Valid until
+            $table->string('product_name');
+            $table->integer('product_price');
+            $table->text('product_description');
             $table->timestamps();
         });
     }
     
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('coupons');
+        Schema::dropIfExists('products');
     }
-};
+}; 

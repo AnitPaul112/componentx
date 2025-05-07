@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('product_image')->nullable(); // Add the new column
+            $table->string('product_image')->nullable()->after('product_description');
         });
     }
 
@@ -25,4 +25,4 @@ return new class extends Migration
             $table->dropColumn('product_image');
         });
     }
-};
+}; 
