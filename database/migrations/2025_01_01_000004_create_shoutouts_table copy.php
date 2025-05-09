@@ -9,12 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('shoutouts', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->text('message');
+            $table->string('title');
+            $table->text('content');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -26,4 +27,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('shoutouts');
     }
-};
+}; 
